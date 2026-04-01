@@ -150,11 +150,11 @@ const fabric_promise_2 = (fn) => {
 };
 
 // использование:
-let loadScriptPromise = fabric_promise_2(async_fn);
-loadScriptPromise().then((data) => {
-  console.log('THEN');
-  console.log('Data = ', data);
-});
+// let loadScriptPromise = fabric_promise_2(async_fn);
+// loadScriptPromise().then((data) => {
+//   console.log('THEN');
+//   console.log('Data = ', data);
+// });
 
 const fabric_promise = (fn, callbacks) => {
   // return function () {
@@ -203,3 +203,99 @@ const fabric_promise = (fn, callbacks) => {
 // };
 
 // get_data();
+
+// setTimeout(function timeout() {
+//   console.log('Таймаут');
+// }, 0);
+
+// let p = new Promise(function (resolve, reject) {
+//   console.log('Создание промиса');
+//   for (let index = 0; index < 100000000; index++) {
+//     if (index === 99999999) resolve();
+//   }
+// });
+
+// p.then(function () {
+//   console.log('Обработка промиса');
+// });
+
+// console.log('Конец скрипта');
+
+// async function f(part) {
+//   console.log('код самой  f()', part);
+
+//   let promise = new Promise((resolve, reject) => {
+//     // setTimeout(() => resolve('готово!'), 0);
+//     console.log('Текст в промисе', part);
+
+//     resolve('готово!');
+//   });
+
+//   let result = await promise; // будет ждать, пока промис не выполнится (*)
+
+//   console.log(result); // "готово!"
+
+//   console.log('конец f()', part);
+// }
+
+// async function f2() {
+//   console.log('Начало F2()');
+
+//   console.log('Создание цикла 3');
+//   for (let index = 0; index < 100000000; index++) {
+//     if (index === 99999999) {
+//       console.log('Цикл 3 99999999');
+//     }
+//   }
+//   console.log('После цикла 3');
+//   console.log('Создание цикла 4');
+//   for (let index = 0; index < 1000000000; index++) {
+//     if (index === 999999999) {
+//       console.log('Цикл 4 99999999');
+//     }
+//   }
+//   console.log('После цикла 4');
+
+//   console.log('Конец F2()');
+// }
+
+// let part = 1;
+// console.log('код до  f()', part);
+// f(part);
+// console.log('код после  f()', part);
+
+// console.log('Создание цикла');
+// for (let index = 0; index < 100000000; index++) {
+//   if (index === 99999999) {
+//     console.log('Цикл 99999999');
+//   }
+// }
+// console.log('После цикла');
+// console.log('Создание цикла 2');
+// for (let index = 0; index < 1000000000; index++) {
+//   if (index === 999999999) {
+//     console.log('Цикл 2 99999999');
+//   }
+// }
+// console.log('После цикла 2');
+
+// part += 1;
+
+// console.log('код до  f()', part);
+// f(part);
+// console.log('код после  f()', part);
+
+// console.log('код до  f2()');
+
+// f2().then((value) => {
+//   console.log('THEN value = ', value);
+//   console.log('Создание цикла 5');
+//   for (let index = 0; index < 1000000000; index++) {
+//     if (index === 999999999) {
+//       console.log('Цикл 5 99999999');
+//     }
+//   }
+//   console.log('После цикла 5');
+// });
+
+// console.log('код после  f2()');
