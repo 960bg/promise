@@ -299,3 +299,40 @@ const fabric_promise = (fn, callbacks) => {
 // });
 
 // console.log('код после  f2()');
+
+class Thenable {
+  constructor(num) {
+    console.log('3 Это конструктор');
+
+    this.num = num;
+  }
+  then(resolve, reject) {
+    console.log(' 5 Это начало THEN');
+
+    console.log('6 then resolve = ', resolve);
+    // выполнить resolve со значением this.num * 2 через 1000мс
+    setTimeout(() => {
+      console.log(' 8 Это setTimeout');
+      resolve(this.num * 2);
+      console.log(' 9 Конец setTimeout');
+    }, 1000); // (*)
+
+    console.log('7 Это конец THEN');
+  }
+}
+
+async function f() {
+  console.log('2 async function f() ');
+
+  // код будет ждать 1 секунду,
+  // после чего значение result станет равным 2
+  let result = await new Thenable(1);
+
+  console.log('10 конец async function f() ', result);
+}
+
+console.log('1 До f()');
+
+f();
+
+console.log('4 После f()');
