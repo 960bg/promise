@@ -121,8 +121,6 @@ function validateBattlefield(field) {
       const el = field[r][c];
 
       if (el === 1) {
-        // console.log(`el[${r},${c}] = `, el);
-
         // наискосок вниз вправо
         if (c + 1 < 10 && r + 1 < 10 && field[r + 1][c + 1] === 1) return false;
         // наискосок вниз влево
@@ -142,6 +140,7 @@ function validateBattlefield(field) {
           findCells.push(...cellNextCol.result);
           ships.push(cellNextCol.result);
         }
+
         // искать след эл вниз
         const cellNextRow = adjCellsNextRow(field, [r, c]);
         if (cellNextRow.status) {
@@ -159,22 +158,16 @@ function validateBattlefield(field) {
     }
   }
 
-  console.log('POINTS = ');
-  console.log(POINTS);
-  console.log('POINTS.length = ');
-  console.log(POINTS.length);
-
-  console.log('ships = ');
-  console.log(ships);
-  console.log('ships.length = ');
-  console.log(ships.length);
+  // проверка правил
   const result = shipCheck(ships);
+
   console.log('result = ', result);
 
   return result;
 }
 
 // let adjCell = [point];
+// смежные ячейки в строке
 function adjCellsNextRow(
   field,
   current,
@@ -191,7 +184,6 @@ function adjCellsNextRow(
   console.log('next', next);
 
   if (point === 1 && 1 === next) {
-    console.log('point===1===next: ', point === 1 && 1 === next);
     // если первый проход то записать текущую ячейку
     if (!cellsToShip.status) {
       cellsToShip.result.push([r, c]);
@@ -205,6 +197,7 @@ function adjCellsNextRow(
   return cellsToShip;
 }
 
+// смежные ячейки в столбце
 function adjCellsNextCol(
   field,
   current,
@@ -212,20 +205,15 @@ function adjCellsNextCol(
 ) {
   const [r, c] = current;
   if (c + 1 >= 10) {
-    // если до этой проходки были данные
-    // а сейчас вышли за пределы сетки
-    // if (cellsToShip.status){
-    //     return cellsToShip;
-    // }
     return cellsToShip;
   }
+
   let point = field[r][c];
   let next = field[r][c + 1];
   console.log('point', point);
   console.log('next', next);
 
   if (point === 1 && 1 === next) {
-    console.log('point===1===next: ', point === 1 && 1 === next);
     // если первый проход то записать текущую ячейку
     if (!cellsToShip.status) {
       cellsToShip.result.push([r, c]);
