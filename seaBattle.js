@@ -180,8 +180,6 @@ function adjCellsNextRow(
 
   let point = field[r][c];
   let next = field[r + 1][c];
-  console.log('point', point);
-  console.log('next', next);
 
   if (point === 1 && 1 === next) {
     // если первый проход то записать текущую ячейку
@@ -210,8 +208,6 @@ function adjCellsNextCol(
 
   let point = field[r][c];
   let next = field[r][c + 1];
-  console.log('point', point);
-  console.log('next', next);
 
   if (point === 1 && 1 === next) {
     // если первый проход то записать текущую ячейку
@@ -253,22 +249,15 @@ function shipCheck(ships) {
     switch (ship.length) {
       case 1:
         ship1 += 1;
-        console.log('ship1: ', ship1);
         break;
       case 2:
         ship2 += 1;
-        console.log('ship2: ', ship2);
-
         break;
       case 3:
         ship3 += 1;
-        console.log('ship3: ', ship3);
-
         break;
       case 4:
         ship4 += 1;
-        console.log('ship4: ', ship4);
-
         break;
       default:
         break;
