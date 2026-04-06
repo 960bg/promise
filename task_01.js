@@ -35,3 +35,18 @@ function doFourThing() {
 // doSecondThing();
 // doThirdThing();
 doFourThing().then(doSecondThing).then(doThirdThing).then(doFirstThing);
+
+на что повлият если я исправлю в коде в строке (1) запись на ...eslintPluginUnicorn.configs.recommended
+
+
+import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+
+export default [
+  // …
+  eslintPluginUnicorn.configs.recommended, //(1)
+  {
+    rules: {
+      'unicorn/better-regex': 'warn',
+    },
+  },
+];
